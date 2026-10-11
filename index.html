@@ -781,4 +781,592 @@ header{overflow:visible!important}
   .product-photo{border-radius:9px}
 }
 
+
+/* Mobile layout stabilization: prioritize readable product cards */
+@media(max-width:760px){
+  html,body{max-width:100%;overflow-x:hidden}
+  .catalog-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+  .product{
+    display:grid!important;
+    grid-template-columns:minmax(112px,36%) minmax(0,1fr)!important;
+    align-items:stretch!important;
+    width:100%!important;max-width:100%!important;min-width:0!important;
+    overflow:hidden!important;
+  }
+  .product-visual{min-width:0!important;width:100%!important;padding:8px!important;display:flex!important;align-items:center!important;justify-content:center!important}
+  .product-gallery{width:100%!important;min-width:0!important;padding:5px!important}
+  .product-photo{width:100%!important;max-width:100%!important;height:auto!important;max-height:190px!important;object-fit:contain!important}
+  .product-info{min-width:0!important;width:100%!important;padding:13px 11px!important;overflow-wrap:anywhere}
+  .product h3,.product-title{font-size:15px!important;line-height:1.3!important;overflow-wrap:anywhere}
+  .product-info p{font-size:12px!important;line-height:1.5!important}
+  .product-options{display:grid!important;grid-template-columns:minmax(0,1fr)!important;min-width:0!important;gap:8px!important}
+  .product-options label,.product-options select,.product-info select{width:100%!important;max-width:100%!important;min-width:0!important}
+  .product .price{font-size:18px!important;line-height:1.3!important;overflow-wrap:anywhere}
+  .order-btn{display:flex!important;width:100%!important;max-width:100%!important;justify-content:center!important;white-space:normal!important;text-align:center!important;padding:10px 8px!important;font-size:12px!important}
+}
+@media(max-width:390px){
+  .product{grid-template-columns:minmax(94px,32%) minmax(0,1fr)!important}
+  .product-info{padding:11px 8px!important}
+  .product h3,.product-title{font-size:14px!important}
+  .product-info p{font-size:11px!important}
+  .product .price{font-size:16px!important}
+  .order-btn{font-size:11px!important}
+}
+
+
+/* Mobile layout rebuild: fixes horizontal overflow and restores readable hierarchy */
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,video,canvas{max-width:100%}
+.wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+@media(max-width:760px){
+  html{scroll-padding-top:68px}
+  body{width:100%;font-size:15px;line-height:1.55}
+  header{position:sticky;top:0;z-index:50}
+  .wrap{width:calc(100% - 28px)!important;max-width:100%!important;margin-inline:auto!important}
+  .nav{height:auto!important;min-height:62px;padding:10px 0;display:flex!important;flex-wrap:nowrap!important;align-items:center;gap:10px!important}
+  .logo{font-size:22px!important;letter-spacing:-1px!important;flex:0 1 auto;min-width:0}
+  .logo span{display:inline-block;padding:.08em 0 .12em;line-height:1.2}
+  .apple-mark{width:17px;height:20px;flex:0 0 auto}
+  .navlinks{display:none!important}
+  .navcta{font-size:12px!important;padding:10px 12px!important;white-space:nowrap;flex:0 0 auto}
+  .hero{padding:30px 0 24px!important}
+  .hero-grid{display:flex!important;flex-direction:column!important;gap:20px!important;min-height:0!important}
+  .hero-grid>div{width:100%;min-width:0}
+  .eyebrow{display:inline-block;max-width:100%;font-size:11px!important;line-height:1.5;white-space:normal}
+  .hero h1{font-size:clamp(34px,9vw,44px)!important;line-height:1.08!important;letter-spacing:-.04em!important;margin:16px 0!important;overflow-wrap:normal}
+  .hero h1 br{display:block}
+  .lead{font-size:15px!important;line-height:1.7!important}
+  .actions{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+  .actions .btn{width:100%;min-height:46px;padding:12px 14px;white-space:normal;text-align:center}
+  .hero-art{width:100%;min-height:190px!important;transform:none!important;order:2}
+  .hero-image-wrap{width:100%;min-height:190px!important}
+  .hero-image-wrap img{max-width:100%;height:auto;object-fit:contain}
+  .hero-image-caption{font-size:12px;line-height:1.5}
+  .trustbar{padding:12px 0!important}
+  .trustgrid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px!important}
+  .trust{min-width:0;padding:12px!important}
+  section{min-width:0;max-width:100%}
+  .section-head{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:10px!important}
+  .section-head h2{font-size:clamp(27px,7vw,34px)!important;line-height:1.15!important;overflow-wrap:anywhere}
+  .category-grid,.features,.steps,.legal-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+  .category-grid>* ,.features>* ,.steps>* ,.legal-grid>*{min-width:0;max-width:100%}
+  .catalog-tools{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important;width:100%;min-width:0}
+  .catalog-search{display:flex!important;align-items:center;width:100%;min-width:0;gap:8px}
+  .catalog-search input{width:100%!important;min-width:0!important;font-size:16px!important}
+  .catalog-search kbd{display:none!important}
+  .catalog-filters{display:flex!important;flex-direction:column!important;gap:10px!important;min-width:0;width:100%}
+  .filter-pills{display:flex!important;flex-wrap:nowrap!important;gap:7px!important;width:100%;max-width:100%;min-width:0;overflow-x:auto!important;overflow-y:hidden;padding:2px 1px 9px;overscroll-behavior-x:contain;scrollbar-width:thin}
+  .filter-pill{flex:0 0 auto!important;white-space:nowrap}
+  .catalog-results{display:flex!important;flex-wrap:wrap;gap:8px;align-items:center}
+  .catalog-results>*{min-width:0}
+  .catalog-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:14px!important;width:100%;min-width:0}
+  .product{
+    display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;max-width:100%!important;min-width:0!important;
+    height:auto!important;overflow:hidden!important;border-radius:20px!important;
+  }
+  .product-visual{
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    width:100%!important;min-width:0!important;min-height:0!important;padding:14px!important;
+    border-right:0!important;border-bottom:1px solid rgba(106,202,255,.14)!important;
+  }
+  .product-gallery{width:100%!important;max-width:100%!important;min-width:0!important;padding:8px!important}
+  .product-photo{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;max-height:250px!important;object-fit:contain!important}
+  .photo-thumbs{display:flex!important;flex-wrap:wrap!important;gap:6px!important;justify-content:center}
+  .selected-finish{max-width:100%;overflow-wrap:anywhere}
+  .product-info{display:flex!important;flex-direction:column!important;gap:11px!important;width:100%!important;max-width:100%!important;min-width:0!important;padding:16px!important;overflow-wrap:anywhere}
+  .product-top{display:flex!important;flex-wrap:wrap!important;align-items:flex-start!important;justify-content:space-between!important;gap:8px!important}
+  .product h3,.product-title{font-size:18px!important;line-height:1.3!important;overflow-wrap:anywhere}
+  .product-info p{font-size:13px!important;line-height:1.6!important}
+  .product-options{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important;width:100%;min-width:0}
+  .product-options>*{width:100%!important;max-width:100%!important;min-width:0!important}
+  .product-options label{display:block;font-size:12px!important;line-height:1.5}
+  .product-options select,.product-info select{width:100%!important;max-width:100%!important;min-width:0!important;min-height:44px!important;font-size:16px!important;padding:10px 12px!important}
+  .product .price{font-size:23px!important;line-height:1.2!important;overflow-wrap:anywhere}
+  .order-btn{display:flex!important;width:100%!important;max-width:100%!important;min-height:46px!important;align-items:center!important;justify-content:center!important;white-space:normal!important;text-align:center!important;padding:12px 14px!important;font-size:14px!important}
+  .price-note,.info-box,.notice,.delivery-note,.catalog-note{font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+  .steps>*,.features>*,.category-grid>*{padding:16px!important}
+  .contact{padding:22px 0!important}
+  .legal{padding:28px 0!important}
+  .legal-copy{min-width:0;overflow-wrap:anywhere}
+  .foot{display:flex!important;flex-wrap:wrap!important;gap:12px!important;padding:20px 0!important}
+  .faq-section{width:calc(100% - 20px)!important;max-width:100%!important;margin:34px auto 26px!important;padding:20px 13px!important;border-radius:20px!important}
+  .faq-section h2{font-size:29px!important;line-height:1.15!important}
+  .faq-intro{font-size:14px!important;line-height:1.7!important}
+  .faq-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important;margin-top:18px!important}
+  .faq-item{min-width:0!important;width:100%!important}
+  .faq-item summary{font-size:14px!important;line-height:1.55!important;padding:16px 48px 16px 14px!important;overflow-wrap:anywhere}
+  .faq-answer{font-size:13px!important;line-height:1.7!important;padding:0 14px 16px!important;overflow-wrap:anywhere}
+  .faq-cta{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:12px!important;padding:16px!important}
+  .faq-cta .btn{width:100%!important}
+  #no-results{max-width:100%;overflow-wrap:anywhere}
+}
+@media(max-width:380px){
+  .wrap{width:calc(100% - 22px)!important}
+  .logo{font-size:20px!important}
+  .navcta{padding:9px 10px!important;font-size:11px!important}
+  .hero h1{font-size:33px!important}
+  .product-info{padding:13px!important}
+  .product h3,.product-title{font-size:17px!important}
+  .product .price{font-size:21px!important}
+  .faq-section{width:calc(100% - 14px)!important;padding:17px 10px!important}
+}
+/* Keep horizontally scrolling filter chips from widening the page */
+.filter-pills{max-width:100%;overscroll-behavior-x:contain}
+
+
+/* Final mobile polish: unify all sections and remove clipping/overflow */
+body{overflow-x:clip!important}
+.logo span,.hero h1 span{
+  background:linear-gradient(100deg,#a2f0ff 0%,#56d7ff 35%,#5894ff 75%,#9bbaff 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;color:transparent!important;
+}
+.trustbar{
+  background:linear-gradient(120deg,#111d36,#0c172c)!important;
+  color:#d7e8ff!important;border-top:1px solid rgba(112,198,255,.13)!important;
+  border-bottom:1px solid rgba(112,198,255,.13)!important;
+}
+.trust,.category-grid>*,.steps>*,.features>*,.legal-copy,.contact>*,.price-note{
+  background:linear-gradient(145deg,#172744,#111d34)!important;
+  color:#d9e8fc!important;border:1px solid rgba(112,198,255,.18)!important;
+  border-radius:18px!important;
+}
+.trust strong,.category-grid h3,.steps h3,.features h3,.legal h3,.contact h2{color:#f4f8ff!important}
+.trust p,.category-grid p,.steps p,.features p,.legal p,.contact p{color:#b9cce5!important}
+.category-grid,.steps,.features,.legal-grid{min-width:0}
+.catalog-tools,.catalog-filters,.catalog-search,.filter-pills,.catalog-results{box-sizing:border-box;max-width:100%}
+.filter-pills{contain:inline-size;overflow-x:auto!important;overscroll-behavior-x:contain}
+#catalog-grid,.catalog-grid{min-width:0;max-width:100%}
+@media(max-width:760px){
+  .trustbar{padding:12px 0!important;background:transparent!important}
+  .trustgrid{grid-template-columns:minmax(0,1fr)!important}
+  .trust{display:flex!important;align-items:center;gap:12px;min-height:54px}
+  .trust .trust-icon{flex:0 0 auto}
+  .category-grid>*,.steps>*,.features>*,.legal-copy{padding:16px!important}
+  .category-grid,.steps,.features,.legal-grid{grid-template-columns:minmax(0,1fr)!important}
+  .catalog-tools,.catalog-filters,.catalog-search,.catalog-results{width:100%!important;max-width:100%!important;min-width:0!important}
+  .filter-pills{width:100%!important;max-width:100%!important;contain:strict;overflow-x:auto!important}
+  .product{margin:0!important}
+}
+
+
+/* EasyPhone contrast repair: dark controls, readable footer brand, no gray filter panels */
+:root{
+  color-scheme:dark;
+  --ep-control:#111e38;
+  --ep-control-hover:#1a3154;
+  --ep-control-border:rgba(93,202,255,.38);
+  --ep-control-text:#f3f9ff;
+}
+html{color-scheme:dark}
+body{color:#f3f8ff}
+.logo{
+  color:#f5f9ff!important;
+  overflow:visible!important;
+}
+.logo span{
+  display:inline-block!important;
+  padding:.08em .08em .14em!important;
+  line-height:1.22!important;
+  background:linear-gradient(100deg,#76e7ff 0%,#48bfff 38%,#5289ff 72%,#b2c8ff 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;color:transparent!important;
+  filter:drop-shadow(0 2px 8px rgba(53,174,255,.22));
+}
+footer .logo, .footer .logo, .site-footer .logo,
+footer .logo span, .footer .logo span, .site-footer .logo span,
+footer .brand, .footer .brand, .site-footer .brand{
+  color:#f5f9ff!important;
+  -webkit-text-fill-color:initial!important;
+  background:none!important;
+}
+footer .logo span, .footer .logo span, .site-footer .logo span,
+footer .brand span, .footer .brand span, .site-footer .brand span{
+  background:linear-gradient(100deg,#76e7ff,#4d8dff)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;color:transparent!important;
+}
+/* Search box: replace pale/gray background and brighten placeholder */
+.catalog-search,.catalog-search form{
+  background:linear-gradient(135deg,#132440,#0e1a31)!important;
+  border:1px solid var(--ep-control-border)!important;
+  border-radius:16px!important;
+  color:var(--ep-control-text)!important;
+}
+.catalog-search input,.catalog-search input[type="search"],input[type="search"],
+input[type="text"],.sort-control select{
+  color:var(--ep-control-text)!important;
+  background:linear-gradient(180deg,#172846,#101b32)!important;
+  border:1px solid rgba(103,194,255,.34)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+.catalog-search input::placeholder,input::placeholder{
+  color:#b9cce5!important;opacity:1!important;
+}
+/* Filters: remove gray chip surfaces in both selected and unselected states */
+.filter-pills{background:transparent!important}
+.filter-pill,button.filter-pill,.filter-pills button{
+  color:#dcecff!important;
+  background:linear-gradient(145deg,#172846,#101b32)!important;
+  border:1px solid rgba(103,194,255,.3)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+.filter-pill:hover,.filter-pills button:hover{
+  color:#fff!important;
+  background:linear-gradient(145deg,#203b62,#142848)!important;
+  border-color:rgba(100,216,255,.6)!important;
+}
+.filter-pill.is-active,.filter-pill.active,.filter-pill[aria-pressed="true"],
+.filter-pills button.is-active,.filter-pills button.active,
+.filter-pills button[aria-pressed="true"]{
+  color:#fff!important;
+  background:linear-gradient(110deg,#35c9f4,#3678ff)!important;
+  border-color:rgba(133,226,255,.55)!important;
+}
+/* Native selects: dark menu and readable options where browser permits */
+select,.product-options select,.product-info select{
+  color:#f4f9ff!important;
+  background-color:#142440!important;
+  border:1px solid rgba(111,201,255,.4)!important;
+  color-scheme:dark!important;
+}
+select option,select optgroup{
+  color:#f4f9ff!important;
+  background-color:#142440!important;
+}
+select:focus,input:focus{
+  outline:2px solid rgba(73,194,255,.65)!important;
+  outline-offset:2px;
+}
+/* Model cards: unify selector areas with the same navy surface */
+.product-info,.product-options{
+  background:transparent!important;color:#f3f8ff!important;
+}
+.product-options label{color:#c9dcf3!important}
+.product-options select,.product-info select{
+  background:linear-gradient(180deg,#172846,#101b32)!important;
+}
+/* Legal disclosure and footer should not switch to a bright gray panel */
+details,summary{color:#edf6ff}
+.legal,.legal-section,.legal-copy,.legal-details,footer,.footer,.site-footer{
+  background:transparent!important;
+  color:#c7d8ed!important;
+}
+.legal details,.legal-section details,.legal-details details{
+  background:linear-gradient(145deg,#172744,#111d34)!important;
+  border:1px solid rgba(112,198,255,.2)!important;
+  border-radius:14px!important;
+}
+.legal details summary,.legal-section details summary,.legal-details details summary{
+  color:#f2f8ff!important;
+}
+footer a,.footer a,.site-footer a{color:#8de3ff!important}
+@media(max-width:760px){
+  .catalog-search,.catalog-search input,.filter-pill,select{min-height:42px}
+  .catalog-search input{font-size:16px!important}
+  .filter-pills{padding:3px 1px 8px!important}
+  .filter-pill{flex:0 0 auto!important;white-space:nowrap!important}
+  footer .logo span,.footer .logo span,.site-footer .logo span{
+    display:inline-block!important;padding:.08em .08em .14em!important;line-height:1.22!important;
+  }
+}
+
+
+/* HARD FIX: eliminate the giant light-gray catalog panel */
+html,body{background-color:#0a1121!important;color:#f3f8ff!important}
+main,main>section,.main,.content,.page,.page-content,
+.catalog,.catalog-section,.catalog-wrap,.catalog-container,
+.products-section,.products-wrap,.products-container,
+#catalog,#catalog-section,#catalog-grid,.catalog-grid-wrap,
+.catalog-layout,.catalog-content,.catalog-area,.catalog-body,
+.catalog-panel,.catalog-card,.catalog-shell,.catalog-inner{
+  background:transparent!important;
+  background-color:transparent!important;
+  box-shadow:none!important;
+}
+.catalog-tools,.catalog-filters,.catalog-toolbar,.catalog-controls,
+.search-panel,.catalog-panel,.catalog-toolbar-inner,.catalog-filter-wrap{
+  background:linear-gradient(145deg,#142541 0%,#101b32 100%)!important;
+  background-color:#142541!important;
+  color:#f3f8ff!important;
+  border:1px solid rgba(95,198,255,.28)!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.2)!important;
+}
+.catalog-search,.catalog-search form{
+  background:#101d35!important;background-color:#101d35!important;
+  border:1px solid rgba(95,198,255,.34)!important;
+  color:#f3f8ff!important;
+}
+.catalog-search input,.catalog-search input[type="search"],
+input[type="search"],input[type="text"],.sort-control select{
+  background:#101d35!important;background-color:#101d35!important;
+  color:#f5f9ff!important;
+  border:1px solid rgba(95,198,255,.34)!important;
+}
+.catalog-search input::placeholder,input::placeholder{color:#b8cce6!important;opacity:1!important}
+.filter-pills{background:transparent!important;background-color:transparent!important}
+.filter-pill,.filter-pills button,button.filter-pill{
+  background:#172846!important;background-color:#172846!important;color:#eaf5ff!important;
+  border:1px solid rgba(95,198,255,.3)!important;
+}
+.filter-pill.is-active,.filter-pill.active,.filter-pill[aria-pressed="true"],
+.filter-pills button.is-active,.filter-pills button.active,.filter-pills button[aria-pressed="true"]{
+  background:linear-gradient(110deg,#32c9f3,#3777ff)!important;
+  background-color:#258ff0!important;color:#fff!important;border-color:#66dfff!important;
+}
+/* Override any generic white/gray background applied directly to catalog children */
+.catalog-tools *,.catalog-filters *,.catalog-toolbar *,.catalog-controls *{
+  color:inherit;
+}
+.catalog-tools input,.catalog-filters input,.catalog-toolbar input,.catalog-controls input,
+.catalog-tools select,.catalog-filters select,.catalog-toolbar select,.catalog-controls select{
+  background:#101d35!important;background-color:#101d35!important;color:#f5f9ff!important;
+}
+.product,.product-info,.product-options{
+  background:linear-gradient(145deg,#1a2948,#111b32)!important;
+  background-color:#15233e!important;color:#f3f8ff!important;
+}
+.product-visual,.product-gallery{
+  background:linear-gradient(145deg,#1b3154,#101b31)!important;
+  background-color:#152541!important;
+}
+footer,.footer,.site-footer,.legal,.legal-section,.legal-copy{
+  background:transparent!important;background-color:transparent!important;
+  color:#c8d9ef!important;
+}
+
+
+/* Filter sizing correction: compact chips, not full-width oversized buttons */
+.catalog-tools,.catalog-filters,.catalog-toolbar,.catalog-controls{
+  width:100%!important;max-width:100%!important;
+}
+.filter-pills{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:8px!important;
+  width:100%!important;
+  max-width:100%!important;
+  overflow:visible!important;
+  background:transparent!important;
+}
+.filter-pill,.filter-pills button,button.filter-pill{
+  display:inline-flex!important;
+  flex:0 0 auto!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  min-height:36px!important;
+  height:auto!important;
+  padding:8px 14px!important;
+  margin:0!important;
+  border-radius:999px!important;
+  font-size:13px!important;
+  line-height:1.2!important;
+  white-space:nowrap!important;
+  text-align:center!important;
+  box-shadow:none!important;
+}
+.filter-pill.is-active,.filter-pill.active,.filter-pill[aria-pressed="true"],
+.filter-pills button.is-active,.filter-pills button.active,.filter-pills button[aria-pressed="true"]{
+  background:linear-gradient(110deg,#35c9f4,#3678ff)!important;
+}
+@media(max-width:760px){
+  .catalog-tools,.catalog-filters,.catalog-toolbar,.catalog-controls{
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;
+    gap:10px!important;padding:12px!important;
+  }
+  .filter-pills{
+    display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;
+    align-items:center!important;justify-content:flex-start!important;
+    gap:7px!important;width:100%!important;max-width:100%!important;
+    overflow-x:auto!important;overflow-y:hidden!important;
+    padding:2px 1px 8px!important;scrollbar-width:thin!important;
+    contain:layout inline-size;
+  }
+  .filter-pill,.filter-pills button,button.filter-pill{
+    flex:0 0 auto!important;width:auto!important;min-width:max-content!important;
+    min-height:34px!important;padding:8px 12px!important;
+    font-size:12px!important;line-height:1.1!important;
+  }
+}
+
+
+/* FINAL targeted surface cleanup — keep layout/sizing unchanged */
+:root{
+  --bg:#091426!important;
+  --surface:#12213b!important;
+  --surface2:#172b4b!important;
+  --line:rgba(105,190,255,.25)!important;
+  --text:#f4f8ff!important;
+  --muted:#c0d0e6!important;
+  --accent:#35c8f3!important;
+  --accent2:#367cff!important;
+}
+html,body,main{background:#091426!important;color:#f4f8ff!important}
+section{background:transparent!important}
+.features .feature,
+.feature,
+.steps .step,
+.step{
+  background:linear-gradient(145deg,#162a49 0%,#10203a 100%)!important;
+  background-color:#142541!important;
+  border:1px solid rgba(99,190,255,.3)!important;
+  box-shadow:0 10px 26px rgba(0,0,0,.16)!important;
+  color:#eaf4ff!important;
+}
+.feature h3,.step h3,.feature strong,.step strong{color:#f5f9ff!important}
+.feature p,.step p{color:#c2d5ec!important}
+.contact{
+  background:linear-gradient(135deg,#132644 0%,#18365d 55%,#122440 100%)!important;
+  background-color:#142541!important;
+  border:1px solid rgba(91,193,255,.35)!important;
+  box-shadow:0 14px 36px rgba(0,0,0,.2)!important;
+  color:#f4f8ff!important;
+  overflow:hidden!important;
+}
+.contact h2{
+  color:#f7fbff!important;
+  max-width:100%!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+  line-height:1.12!important;
+}
+.contact p,.contact .sub{color:#c6d9f0!important}
+.contact .btn{
+  color:#fff!important;
+  background:linear-gradient(110deg,#31c8ef,#3478ff)!important;
+  border:1px solid rgba(154,230,255,.35)!important;
+}
+.legal{
+  background:linear-gradient(180deg,#0b1629 0%,#0d1b31 100%)!important;
+  background-color:#0b1629!important;
+  color:#c8d9ef!important;
+  border-top:1px solid rgba(106,185,255,.2)!important;
+}
+.legal h2{color:#f4f8ff!important}
+.legal details,.legal details[open]{
+  background:linear-gradient(145deg,#142744,#101d34)!important;
+  background-color:#142744!important;
+  border:1px solid rgba(103,190,255,.27)!important;
+  color:#d8e8fb!important;
+}
+.legal details summary{
+  color:#f4f8ff!important;
+  background:transparent!important;
+}
+.legal details .legal-copy{color:#c5d7ed!important;background:transparent!important}
+footer{
+  background:linear-gradient(90deg,#0c1930,#132746)!important;
+  background-color:#0c1930!important;
+  border-top:1px solid rgba(103,190,255,.24)!important;
+  color:#c9ddf3!important;
+}
+footer .logo{
+  color:#f6f9ff!important;
+  -webkit-text-fill-color:#f6f9ff!important;
+  background:none!important;
+}
+footer .logo span{
+  display:inline-block!important;
+  padding:.08em .1em .14em!important;
+  line-height:1.2!important;
+  background:linear-gradient(100deg,#72e7ff,#3789ff)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;color:transparent!important;
+}
+footer small,footer a:not(.logo){color:#c7d9ef!important}
+footer a:hover{color:#8beaff!important}
+/* Remove any lingering light-gray slabs from common wrapper elements */
+.catalog-tools,.catalog-filters,.catalog-toolbar,.catalog-controls,
+.search-panel,.catalog-search,.catalog-search form,
+.catalog-grid-wrap,.catalog-layout,.catalog-content{
+  background-color:transparent!important;
+}
+.catalog-search,.catalog-search form{
+  background:linear-gradient(145deg,#142541,#101c32)!important;
+  border:1px solid rgba(101,191,255,.3)!important;
+}
+.catalog-search input,input[type="search"],input[type="text"]{
+  background:#101d35!important;color:#f4f8ff!important;
+}
+.catalog-search input::placeholder,input::placeholder{color:#b9cde6!important;opacity:1!important}
+.filter-pills{background:transparent!important}
+.filter-pill,.filter-pills button,button.filter-pill{
+  background:#172846!important;color:#eaf5ff!important;
+}
+.filter-pill.is-active,.filter-pill.active,.filter-pill[aria-pressed="true"],
+.filter-pills button.is-active,.filter-pills button.active,.filter-pills button[aria-pressed="true"]{
+  background:linear-gradient(110deg,#35c9f4,#3678ff)!important;color:#fff!important;
+}
+@media(max-width:760px){
+  .contact{padding:22px!important}
+  .contact h2{font-size:clamp(27px,7vw,40px)!important}
+  .features .feature,.feature,.steps .step,.step{padding:16px!important}
+  footer .foot{gap:14px!important;flex-wrap:wrap!important}
+}
+
+
+/* Restore bright, original-looking iPhone images without changing the card layout */
+.product img,
+.product-visual img,
+.product-image img,
+.product-gallery img,
+.product picture img,
+img.phone-image,
+img.product-image{
+  filter:none!important;
+  opacity:1!important;
+  mix-blend-mode:normal!important;
+}
+.product-visual,.product-image,.product-gallery,.product picture{
+  filter:none!important;
+  opacity:1!important;
+  background:linear-gradient(145deg,#f7f8fc,#e8eef7)!important;
+}
+.product-visual::before,.product-visual::after,
+.product-image::before,.product-image::after,
+.product-gallery::before,.product-gallery::after{
+  opacity:0!important;
+  filter:none!important;
+  background:transparent!important;
+}
+
+
+/* Fix the gray rectangle behind the footer's EasyPhone logo */
+footer, footer .foot{
+  background:linear-gradient(135deg,#0b1629 0%,#10213c 55%,#132a4b 100%)!important;
+  background-color:#0b1629!important;
+  color:#d9e8fb!important;
+  border-color:rgba(105,190,255,.22)!important;
+  box-shadow:none!important;
+}
+footer .foot{
+  padding:28px 24px!important;
+  border-radius:0!important;
+}
+footer .foot .logo{
+  color:#f5f9ff!important;
+  -webkit-text-fill-color:#f5f9ff!important;
+  background:transparent!important;
+}
+footer .foot .logo span{
+  display:inline-block!important;
+  padding:.08em .1em .14em!important;
+  line-height:1.2!important;
+  background:linear-gradient(100deg,#72e7ff,#3789ff)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;color:transparent!important;
+}
+footer .foot small,footer .foot a:not(.logo){
+  color:#c7d9ef!important;
+}
+footer .foot a:hover{color:#8beaff!important}
+@media(max-width:760px){
+  footer .foot{padding:24px 18px!important;gap:12px!important}
+}
+
 </style>
