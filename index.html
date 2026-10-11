@@ -492,4 +492,117 @@ footer,.foot{overflow-wrap:anywhere}
  .faq-section h2{font-size:30px}
 }
 
+
+/* Final mobile repair: prevent overflow, improve readability and load stability */
+*{box-sizing:border-box}
+html{width:100%;max-width:100%;overflow-x:clip}
+body{width:100%;max-width:100%;margin:0;overflow-x:clip}
+img,svg,video,canvas{max-width:100%}
+.wrap{width:min(1240px,calc(100% - 40px));margin-inline:auto}
+header{width:100%;max-width:100%}
+.nav{min-width:0;gap:12px}
+.logo{white-space:nowrap}
+.navlinks{min-width:0}
+.hero,.hero-grid,.hero-grid>div,.hero-art,.hero-image-wrap{min-width:0;max-width:100%}
+.hero h1{max-width:100%;font-size:clamp(34px,5vw,62px);line-height:1.08;letter-spacing:-.035em;overflow-wrap:normal;word-break:normal}
+.hero h1 span{display:inline-block;max-width:100%;padding-block:.04em}
+.lead{max-width:62ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.actions a{max-width:100%;white-space:normal;text-align:center}
+.catalog-tools,.catalog-filters,.filter-pills,.catalog-search,.sort-control{min-width:0;max-width:100%}
+.filter-pills{display:flex;flex-wrap:wrap}
+.catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.product{min-width:0;max-width:100%;height:100%}
+.product-visual,.product-gallery,.product-info,.product-options{min-width:0;max-width:100%}
+.product-photo{max-width:100%;height:auto;object-fit:contain}
+.product-options{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.product-options label, .product-options select{width:100%;min-width:0}
+.price{overflow-wrap:anywhere}
+.faq-section{width:calc(100% - 40px);max-width:1180px;margin:54px auto;padding:30px;color:#17233e}
+.faq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.faq-item{min-width:0}
+.faq-item summary{overflow-wrap:anywhere;word-break:normal}
+.faq-answer{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:900px){
+ .wrap{width:calc(100% - 32px)}
+ .nav{height:auto;min-height:64px;flex-wrap:wrap;padding-block:12px}
+ .navlinks{gap:12px}
+ .hero{padding:34px 0 28px!important}
+ .hero-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
+ .hero-grid>div:first-child{width:100%;max-width:720px}
+ .hero-art{order:2;min-height:220px!important}
+ .hero-image-wrap,.hero-product-render{min-height:220px!important}
+ .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .faq-section{width:calc(100% - 32px);padding:24px}
+}
+@media(max-width:600px){
+ .wrap{width:calc(100% - 28px)}
+ .nav{display:flex;justify-content:space-between;gap:10px}
+ .logo{font-size:23px;letter-spacing:-1px}
+ .navcta{padding:10px 14px;font-size:12px;white-space:nowrap}
+ .navlinks{display:none!important}
+ .hero{padding:30px 0 24px!important}
+ .hero-grid{gap:18px!important}
+ .hero h1{font-size:clamp(33px,9.5vw,45px)!important;line-height:1.1!important;letter-spacing:-.04em!important;margin:16px 0 14px!important}
+ .eyebrow{font-size:11px;max-width:100%;white-space:normal}
+ .lead{font-size:15px;line-height:1.65}
+ .hero-note{display:block;font-size:12px;line-height:1.6}
+ .actions{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+ .actions .btn{width:100%;min-height:46px;display:flex;align-items:center;justify-content:center}
+ .hero-art{min-height:190px!important;border-radius:20px}
+ .hero-image-wrap,.hero-product-render{min-height:190px!important;border-radius:20px}
+ .section-head{align-items:flex-start;gap:12px}
+ .section-head h2{font-size:clamp(26px,7vw,34px)!important;line-height:1.15!important}
+ .catalog-tools{display:flex;flex-direction:column;gap:12px}
+ .catalog-search{width:100%;display:flex}
+ .catalog-search input{width:100%;min-width:0}
+ .catalog-filters{display:flex;flex-direction:column;gap:12px}
+ .filter-pills{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding:2px 1px 8px;scrollbar-width:thin}
+ .filter-pill{flex:0 0 auto}
+ .sort-control{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+ .sort-control select{max-width:65%;min-width:0}
+ .catalog-grid{grid-template-columns:minmax(0,1fr)!important;gap:14px}
+ .product{display:grid;grid-template-columns: minmax(100px,34%) minmax(0,1fr);align-items:stretch;border-radius:18px}
+ .product-visual{min-height:0!important;display:flex;align-items:center;justify-content:center;padding:10px}
+ .product-gallery{width:100%;min-width:0}
+ .product-photo{display:block;width:100%;height:auto!important;max-height:210px;object-fit:contain!important}
+ .photo-thumbs{flex-wrap:wrap;gap:4px}
+ .photo-thumb{width:34px;height:34px}
+ .product-info{padding:14px 12px!important}
+ .product-top{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px}
+ .product h3,.product-title{font-size:16px!important;line-height:1.25!important;overflow-wrap:anywhere}
+ .product-info p{font-size:12px;line-height:1.5}
+ .product-options{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+ .product-options label{font-size:11px}
+ .product-options select{font-size:12px;padding:9px 10px}
+ .product .price{font-size:19px!important;line-height:1.25}
+ .order-btn{width:100%;padding:11px 10px!important;font-size:12px!important;white-space:normal;text-align:center}
+ .price-note{font-size:13px;line-height:1.65}
+ .faq-section{width:calc(100% - 20px);margin:36px auto 28px;padding:19px 12px;border-radius:20px}
+ .faq-head{margin-bottom:18px}
+ .faq-kicker{font-size:11px;letter-spacing:.04em}
+ .faq-section h2{font-size:29px!important;line-height:1.15!important;margin-bottom:10px}
+ .faq-intro{font-size:14px;line-height:1.65}
+ .faq-grid{grid-template-columns:minmax(0,1fr)!important;gap:10px;margin-top:18px}
+ .faq-item{border-radius:15px}
+ .faq-item summary{font-size:14px!important;line-height:1.5!important;padding:16px 48px 16px 14px!important}
+ .faq-item summary:after{right:12px;width:27px;height:27px}
+ .faq-answer{font-size:13px!important;line-height:1.7!important;padding:0 14px 16px!important}
+ .faq-cta{display:flex;flex-direction:column;align-items:stretch;gap:14px;padding:16px}
+ .faq-cta h3{font-size:18px}
+ .faq-cta .btn{width:100%;text-align:center}
+ .foot,.footer,.footer-inner{flex-wrap:wrap;gap:14px}
+}
+@media(max-width:380px){
+ .product{grid-template-columns:minmax(82px,31%) minmax(0,1fr)}
+ .product-info{padding:11px 9px!important}
+ .product h3,.product-title{font-size:14px!important}
+ .product-info p{font-size:11px}
+ .product .price{font-size:17px!important}
+ .order-btn{font-size:11px!important}
+ .faq-section{width:calc(100% - 14px);padding:16px 9px}
+ .faq-section h2{font-size:26px!important}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
 </style>
